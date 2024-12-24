@@ -71,7 +71,7 @@
         #wrap-center{
             width: 1280px;
             display: inline-block;
-            background-color: yellow;
+            background-color: white;
         }
         #header{
             text-align: left;
@@ -194,29 +194,85 @@
                 </button>
             </div>
             <style>
+                #search {
+                    display: flex;
+                    justify-content: center; /* form을 수평 중앙에 배치 */
+                    align-items: center; /* 수직 중앙 정렬 */
+                    height: 58px; /* 필요한 경우 높이 설정 */
+                }
                 #search > form{
-                    display: inline-block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
                     width: 706px;
                     height: 58px;
                     border: 1px solid #03c75a;
                     border-radius: 33px;
-                    text-align: left;
+                    padding: 0 10px;
                 }
-                #search > form > input{
-                    width: 480px;
-                    height: 58px;
-                    padding: 17px 0;
-                    border: none;
+                #search-input{
+                    flex-grow: 1;
+                    height: 56px;
+                    padding: 17px 0px;
+                    font-size: 1.3rem;
+                    line-height: 24px;
+                    margin-left: 20px;
+                    font-weight: bold;
                     outline: none;
-                    justify-content: left;
-                    margin-left: 35px;
+                    border: none;
+                }
+                #search-right{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                #search-keyboard::before{
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -148px -301px;
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    height: 14px;
+                }
+                #search-recent::before{
+                    content: "";
+                    display: block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -154px -211px;
+                    background-repeat: no-repeat;
+                    width: 10px;
+                    height: 6px;
+                }
+                #search-button::before{
+                    content: "";
+                    display: inline-block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -405px -79px;
+                    background-repeat: no-repeat;
+                    width: 25px;
+                    height: 25px;
                 }
             </style>
             <div id="search">
                 <form action="">
                     <label for="search-input" class="blind">검색어 입력</label>
-                    <input id="search-input" type="text">
+                    <input id="search-input" type="text" placeholder="검색어를 입력해 주세요.">
                     <button class="blind">검색</button>
+                    <div id="search-right">
+                        <button href="#" id="search-keyboard">
+                            <span class="blind">입력도구</span>
+                        </button>
+                        <button href="#" id="search-recent">
+                            <span class="blind">자동완성/최근검색어펼치기</span>
+                        </button>
+                        <button id="search-button">
+                            <div><span class="blind">검색</span></div>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div id="nav"></div>
