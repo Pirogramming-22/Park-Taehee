@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub</title>
+    <style>
+        #wrap{
+            text-align: center;
+            background-color: #3c3c3c
+        }
+        #wrap-center{
+            width: 1500px;
+            display: inline-block;
+            background-color: #3c3c3c;
+        }
+        #header{
+            text-align: left;
+            position: relative;
+            height: 72px;
+        }
+        #header-cat, #header-why, #header-team, #header-marketplace, #header-input{
+            position: absolute;
+            top:10px;
+            padding: 8px;
+            display:inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: white
+            
+        }
+        #sign-up{
+            position: absolute;
+            top:13px;
+            padding: 4px 12px;
+            display:inline-block;
+            background: none;   
+            border: 1px solid rgba(0, 0, 0, .06);
+            border-radius: 4px;
+            text-decoration: none;
+            border-color: white;  
+            cursor: pointer;
+            color: white
+        }
+        #sign-in{
+            position: absolute;
+            top: 14px;
+            padding: 4px 12px;
+            display:inline-block;
+            background: none;   
+            border: none; 
+            cursor: pointer;
+            color: white
+        }
+        #header-input{
+            top: 14px;
+            height: 30px;
+            width:200px;
+            padding: 0 0 0 8px;
+            background-color: #626262;
+            border: none;
+            border-radius: 4px;
+            right: 200px;
+        }
+        #header-input::placeholder{
+            color: white;
+        }
+        #header-cat>div, #header-why>div, #header-team>div, #header-marketplace>div, #sign-in>div, #sign-up>div{
+            font-size: 17px;
+        }
+        #header-cat{
+            top: 3px;
+            fill: currentColor;
+            left: 0px
+        }
+        #header-why{
+            display: flex;
+            fill: currentColor;
+            left: 50px
+        }
+        #header-team{
+            display: flex;
+            fill: currentColor;
+            left: 180px;
+        }
+        #header-marketplace{
+            display: flex;
+            fill: currentColor;
+            left: 400px;
+        }
+        #sign-in{
+            right: 120px;
+        }
+        #sign-up{
+            right: 30px;
+        }
+        #search{
+            position: absolute;
+            top: 18px;
+            right: 205px;
+            background-color: #626262;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="wrap-center">
+            <div id="header">
+                <button id="header-cat">
+                    <div><svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github">
+                        <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z" class=""></path>
+                    </svg></div>
+                </button>
+                <button id="header-why">
+                    <div>Why GitHub?</div>
+                    <div id="ar">
+                        <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                            <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                        </svg>
+                    </div>
+                </button>
+                <button id="header-team">
+                    <div>Team&nbsp;Enterprise&nbsp;Explore</div>
+                    <div id="ar">
+                        <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                            <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                        </svg>
+                    </div>
+                </button>
+                <button id="header-marketplace">
+                    <div>Marketplace&nbsp;Pricing</div>
+                    <div id="ar">
+                        <svg opacity="0.5" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-chevron-down HeaderMenu-icon ml-1">
+                            <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                        </svg>
+                    </div>
+                </button>
+                <input id="header-input" type="text" placeholder="Search GitHub">
+                <button id="search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" aria-hidden="true" class="mr-1"><path fill="none" stroke="#979A9C" opacity=".4" d="M3.5.5h12c1.7 0 3 1.3 3 3v13c0 1.7-1.3 3-3 3h-12c-1.7 0-3-1.3-3-3v-13c0-1.7 1.3-3 3-3z"></path><path fill="#979A9C" d="M11.8 6L8 15.1h-.9L10.8 6h1z"></path></svg>
+                </button>
+                <button id="sign-in">
+                    <div>sign in</div>
+                </button>
+                <button id="sign-up">
+                    <div>sign up</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <style>
+        #main{
+            display: flex;
+            z-index: 0;
+        }
+        #main-left, #main-right {
+            background-color: #3c3c3c; 
+            color: white;
+        }
+        #main-left{
+            font-size: 1.2rem;
+            width: 430px;
+            padding-left: 350px;
+            padding-top: 100px;
+        }
+        #main-right{
+            z-index: 0;
+            margin-right: 0;
+            height: 600px;
+            width: 920px;
+            margin-left: auto; 
+        } 
+        #main-left>div{
+            font-size: 5rem;
+        } 
+        .highlight {
+            font-weight: bold;  
+            text-decoration: underline;  
+        }
+        #signup-form {
+        background-color: white;
+        width: 400px;
+        height: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: black;
+        }
+        .form-group input {
+            width:350px;
+            padding: 8px;
+            border: 1px solid #d3cfcf;
+            border-radius: 4px;
+            background-color: white;
+        }
+        .form-group input:not(:placeholder-shown){
+            background-color: rgb(133, 155, 221);
+        }
+        #signup-form button {
+            width:370px;
+            background-color: #28a745;
+            color: white;
+            margin-top: 40px;
+            padding: 10px 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #footer{
+            background-color: transparent;
+            height: 300px
+        }
+        #footer > div{
+            background-image: url('/footer.png');
+            position: relative;
+            size: 100px;
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            margin-left: 500px;
+            z-index: 2;
+            width: 40%; 
+            height: 100%; 
+            left: 10px; 
+        }
+        #password-requirements, #terms-message{
+            font-size: 12px;
+            color: black;
+            padding-top: 20px;
+        }
+
+        #password-requirements a, #terms-message a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        #password-requirements a:hover, #terms-message a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <main id="main">
+        <div id="main-left">
+            <div>Built for</div>
+            <div>developers</div>
+            <p>GitHub is a development platform inspired by the way you work. From <span class="highlight">open source</span> to <span class="highlight">business</span>, you can host and review code, manage projects, and build software alongside 50 million developers.</p>
+        </div>
+        <div id="main-right">
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" placeholder="write username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="write email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" placeholder="write password">
+                </div>
+                <div id="password-requirements">
+                    Make sure it's at least 15 characters OR at least 8 characters including a number and a lowercase letter.
+                    <a href="#" id="learn-more">Learn more.</a>
+                </div>
+                <button type="submit">Sign up for GitHub</button>
+                <div id="terms-message">
+                    By clicking "Sign up for GitHub", you agree to our <a href="#" id="terms">Terms of Service</a> and <a href="#" id="privacy">Privacy Statement</a>. We'll occasionally send you account related emails.
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer id="footer">
+        <div></div>
+    </footer>
+</body>
+</html>
