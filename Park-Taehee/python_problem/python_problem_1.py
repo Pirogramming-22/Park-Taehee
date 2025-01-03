@@ -1,3 +1,4 @@
+from random import randint
 num=0
 i=0
 
@@ -14,13 +15,13 @@ def brGame():
             print("정수를 입력하세요")
 
 while(True):
-    num=brGame()
+    num=randint(1, 3)
     out=0
     for out in range(num):
         i += 1
-        print("playerA: ", format(i))
+        print("computer: ", format(i))
         if i==31:
-            print("playerB win!")
+            print("player win!")
             exit()
     num=brGame()
     out = 0
@@ -28,5 +29,5 @@ while(True):
         i += 1
         print("playerB: ", format(i))
         if i==31:
-            print("playerA win!")
+            print("computer win!")
             exit()
