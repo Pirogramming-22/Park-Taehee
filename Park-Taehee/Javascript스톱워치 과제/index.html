@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="time.js" defer></script>
+    <title>stopwatch</title>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <i class="ri-timer-fill"></i>
+            <h2>피로그래밍 스톱워치</h2>
+        </header>
+        <div class = "main">
+            <div class="main-top">
+                <div class="main-top-time">
+                    <h1 id="time-display">00:00:00</h1>
+                </div>
+                <div class="main-top-button">
+                    <button class="function" id="start-btn">start</button>
+                    <button class="function" id="stop-btn">stop</button>
+                    <button class="function" id="reset-btn">reset</button>
+                </div>
+            </div>
+            <div class="main-bottom">
+                <div class="main-bottom-top">
+                    <button class="ri-checkbox-blank-circle-line"></button>
+                    <p>구간 기록</p>
+                    <button class="ri-delete-bin-6-fill"></button>
+                </div>
+                <div class="main-bottom-record"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
