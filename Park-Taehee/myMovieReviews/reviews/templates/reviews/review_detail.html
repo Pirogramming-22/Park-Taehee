@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>myMovieReview</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
+    </head>
+    <body>
+        <div id="top" style="border-bottom: 1px solid rgb(242, 240, 240);">
+            <a id="home" href="{% url 'review_list' %}">my <span style="color: rgb(255, 75, 75);">Movie</span> reviews</a>
+            <a href="{% url 'review_create' %}">Add a New Review</a>
+        </div>
+        <div class="detail_top">
+            <h1 class="detail_title">{{ review.title }}</h1>
+            <div class="detail_fuction">
+                <a class="justify" href="{% url 'review_edit' id=review.id %}">수정</a>
+                <form method="POST" action="{% url 'review_delete' id=review.id %}">
+                {% csrf_token %}
+                <button type="submit">삭제</button>
+            </form>
+            </div>
+        </div>
+        <div class="information">
+            <p>개봉년도: {{ review.year }}</p>
+            <p>감독: {{ review.director }}</p>
+            <p>주연: {{ review.actor }}</p>
+            <p>장르: {{ review.genre }}</p>
+            <p>별점: {{ review.score }}</p>
+            <p>러닝타임: {{ hours }}시간 {{ minutes }}분</p>
+        </div>
+        <div class="information">
+            <p>{{ review.review }}</p>
+        </div>
+    </body>
+</html>
