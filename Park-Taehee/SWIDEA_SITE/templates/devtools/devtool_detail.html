@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>myMovieReview</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'devtools/styles.css' %}" />
+  </head>
+  <body>
+    <div id="top" style="border-bottom: 1px solid rgb(242, 240, 240)">
+      <a id="home" href="{% url 'idea_list' %}">
+        My <span style="color: rgb(75, 255, 84)">SW Idea</span> Manage
+      </a>
+      <a href="{% url 'idea_create' %}">아이디어 등록</a>
+      <a href="{% url 'idea_list' %}">아이디어 관리</a>
+      <a href="{% url 'devtool_create' %}">개발툴 등록</a>
+      <a href="{% url 'devtool_list' %}">개발툴 관리</a>
+    </div>
+    <div class="detail_top">
+      <div class="detail_fuction">
+        <a class="justify" href="{% url 'devtool_edit' id=devtool.id %}"
+          >수정</a
+        >
+        <form method="POST" action="{% url 'devtool_delete' id=devtool.id %}">
+          {% csrf_token %}
+          <button type="submit">삭제</button>
+        </form>
+      </div>
+    </div>
+    <div class="information">
+      <h2>{{ devtool.name }}</h2>
+      <p>{{ devtool.kind }}</p>
+      <p>{{ devtool.content }}</p>
+    </div>
+  </body>
+</html>

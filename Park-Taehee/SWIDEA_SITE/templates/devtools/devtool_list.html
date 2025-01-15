@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>myMovieReview</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'devtools/styles.css' %}" />
+  </head>
+  <body>
+    <div id="top" style="border-bottom: 1px solid rgb(242, 240, 240)">
+      <a id="home" href="{% url 'idea_list' %}">
+        My <span style="color: rgb(75, 255, 84)">SW Idea</span> Manage
+      </a>
+      <a href="{% url 'idea_create' %}">아이디어 등록</a>
+      <a href="{% url 'idea_list' %}">아이디어 관리</a>
+      <a href="{% url 'devtool_create' %}">개발툴 등록</a>
+      <a href="{% url 'devtool_list' %}">개발툴 관리</a>
+    </div>
+    <div style="margin-top: 10px"></div>
+    <div id="bottom">
+      {% for devtool in devtools %}
+      <div class="item">
+        <h2>
+          <a href="{% url 'devtool_detail' id=devtool.id %}"
+            >{{devtool.name}}</a
+          >
+        </h2>
+        <p>{{devtool.kind}}</p>
+        <p>{{devtool.content}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
