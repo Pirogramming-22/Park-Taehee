@@ -1,28 +1,34 @@
 <html>
-    <head>
-        <title>myMovieReview</title>
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
-    </head>
-    <body>
-        <div id="top" style="border-bottom: 1px solid rgb(242, 240, 240);">
-            <a id="home" href="{% url 'review_list' %}">my <span style="color: rgb(255, 75, 75);">Movie</span> reviews</a>
-            <a href="{% url 'review_create' %}">Add a New Review</a>
-        </div>
-        <div style="margin-top: 10px;">
-            <a class="justify" href="?sort_by=title">제목 오름차순</a> | 
-            <a class="justify" href="?sort_by=score">별점 내림차순</a> | 
-            <a class="justify" href="?sort_by=time">상영시간 오름차순</a>
-        </div>
-        <div id="bottom">
-            {% for review in reviews %}
-            <div class="item">
-                <h2><a href="{% url 'review_detail' id=review.id %}">🎬{{review.title}}</a></h2>
-                <p>개봉년도 {{review.year}}</p>
-                <p>장르 {{review.genre}}</p>
-                <p>별점 {{review.score}}</p>
-            </div>
-            {% endfor %}
-        </div>
-    </body>
+  <head>
+    <title>myMovieReview</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reviews/styles.css' %}" />
+  </head>
+  <body>
+    <div id="top" style="border-bottom: 1px solid rgb(242, 240, 240)">
+      <a id="home" href="{% url 'review_list' %}"
+        >my <span style="color: rgb(255, 75, 75)">Movie</span> reviews</a
+      >
+      <a href="{% url 'review_create' %}">Add a New Review</a>
+    </div>
+    <div style="margin-top: 10px">
+      <a class="justify" href="?sort_by=title">제목 오름차순</a> |
+      <a class="justify" href="?sort_by=score">별점 내림차순</a> |
+      <a class="justify" href="?sort_by=time">상영시간 오름차순</a>
+    </div>
+    <div id="bottom">
+      {% for review in reviews %}
+      <div class="item">
+        <h2>
+          <a href="{% url 'review_detail' id=review.id %}"
+            >🎬{{review.title}}</a
+          >
+        </h2>
+        <p>개봉년도 {{review.year}}</p>
+        <p>장르 {{review.genre}}</p>
+        <p>별점 {{review.score}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
 </html>

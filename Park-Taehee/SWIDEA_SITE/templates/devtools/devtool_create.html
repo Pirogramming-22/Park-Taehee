@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>My SW Idea Manage</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'devtools/styles.css' %}" />
+  </head>
+  <body>
+    <div id="top" style="border-bottom: 1px solid rgb(242, 240, 240)">
+      <a id="home" href="{% url 'idea_list' %}">
+        My <span style="color: rgb(75, 255, 84)">SW Idea</span> Manage
+      </a>
+      <a href="{% url 'idea_create' %}">아이디어 등록</a>
+      <a href="{% url 'idea_list' %}">아이디어 관리</a>
+      <a href="{% url 'devtool_create' %}">개발툴 등록</a>
+      <a href="{% url 'devtool_list' %}">개발툴 관리</a>
+    </div>
+    <div class="form_center">
+      <div class="information information_form">
+        <div class="form_center">
+          <h1 style="border-bottom: 1px solid rgb(161, 160, 160)">
+            <span style="color: rgb(255, 75, 75)">Movie</span> Review 🍿
+          </h1>
+        </div>
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
+          <div class="bottom_btn">
+            <button id="save" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

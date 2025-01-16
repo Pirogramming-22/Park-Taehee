@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>myMovieReview</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ideas/styles.css' %}" />
+  </head>
+  <body>
+    <div id="top" style="border-bottom: 1px solid rgb(242, 240, 240)">
+      <a id="home" href="{% url 'idea_list' %}">
+        My <span style="color: rgb(75, 255, 84)">SW Idea</span> Manage
+      </a>
+      <a href="{% url 'idea_create' %}">아이디어 등록</a>
+      <a href="{% url 'idea_list' %}">아이디어 관리</a>
+      <a href="{% url 'devtool_create' %}">개발툴 등록</a>
+      <a href="{% url 'devtool_list' %}">개발툴 관리</a>
+    </div>
+    <div class="detail_top">
+      <h1 class="detail_title">{{ idea.title }}</h1>
+      <div class="detail_fuction">
+        <a class="justify" href="{% url 'idea_edit' id=idea.id %}">수정</a>
+        <form method="POST" action="{% url 'idea_delete' id=idea.id %}">
+          {% csrf_token %}
+          <button type="submit">삭제</button>
+        </form>
+      </div>
+    </div>
+    <div class="information">
+      <img src="{{ idea.image.url }}" alt="{{ idea.title }}" />
+      <h2>{{ idea.title }}</h2>
+      <p>1)아이디어 관심도<br />{{ idea.interest }}</p>
+      <p>2) 예상 개발 툴<br />{{ idea.devtool }}</p>
+      <p>3) 아이디어 설명<br />{{ idea.content }}</p>
+    </div>
+  </body>
+</html>
