@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>Pirostagram</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <meta name="csrf-token" content="{{ csrf_token }}">
+  </head>
+  <body>
+    <div class="detail_fuction">
+      <a class="justify" href="{% url 'post_edit' id=post.id %}">수정</a>
+      <form method="POST" action="{% url 'post_delete' id=post.id %}">
+        {% csrf_token %}
+        <button type="submit">삭제</button>
+      </form>
+    </div>
+    <div class="information">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+      <h2>{{ post.content }}</h2>
+    
+      <div class="btn btn-primary post__like" onclick="onClickLike({{ post.id }}, 'like')">
+        ❤️ <span id="like-count-{{ post.id }}">{{ post.like }}</span>
+      </div>
+    
+      <div class="btn btn-primary post__dislike" onclick="onClickLike({{ post.id }}, 'dislike')">
+        👎 <span id="dislike-count-{{ post.id }}">{{ post.dislike }}</span>
+      </div>
+    </div>
+    
+    <!-- 댓글 표시 -->
+    <div class="comments">
+      <h3>댓글</h3>
+      <ul>
+        {% for comment in comments %}
+          <li>{{ comment.text }} - <small>{{ comment.created_at }}</small></li>
+        {% empty %}
+          <li>아직 댓글이 없습니다.</li>
+        {% endfor %}
+      </ul>
+      
+      <!-- 댓글 입력 폼 -->
+      <form method="POST">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">댓글 달기</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // CSRF 토큰 가져오기
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        const onClickLike = async (id, type) => {
+            const url = "/posts/like_ajax/"; 
+            
+            try {
+                const response = await axios.post(url, 
+                    {
+                        id: id,
+                        type: type,
+                    },
+                    {
+                        headers: {
+                            "X-CSRFToken": csrfToken,
+                            "Content-Type": "application/json"
+                        }
+                    }
+                );
+
+                if (response.data && response.data.count !== undefined) {
+                    likeHandleResponse(id, type, response.data.count);
+                } else {
+                    console.error("Invalid response:", response.data);
+                }
+            } catch (error) {
+                console.error("Error occurred:", error.response ? error.response.data : error.message);
+            }
+        }
+
+        const likeHandleResponse = (id, type, count) => {
+            const element = document.getElementById(`${type}-count-${id}`);
+            if (element) {
+                element.innerText = count; // 서버에서 전달된 count 값 적용
+            } else {
+                console.error(`Element #${type}-count-${id} not found`);
+            }
+        }
+    </script>
+  </body>
+</html>

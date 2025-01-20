@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Pirostagram</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <div class="form_center">
+            <form method="post">
+                {% csrf_token %} {{ form.as_p }}
+                <div class="bottom_btn">
+                  <button id="save" type="submit">Save</button>
+                </div>
+              </form>
+        </div>
+  </body>
+</html>
+
