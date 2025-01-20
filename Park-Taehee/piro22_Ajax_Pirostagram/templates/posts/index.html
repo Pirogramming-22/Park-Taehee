@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/reset.css" />
+    <link rel="stylesheet" href="../../static/css/layout.css" />
+    <link rel="stylesheet" href="../../static/css/header.css" />
+    <link rel="stylesheet" href="../../static/css/profile.css" />
+    <link rel="stylesheet" href="../../static/css/userInfo.css" />
+    <link rel="stylesheet" href="../../static/css/highlights.css" />
+    <link rel="stylesheet" href="../../static/css/posts.css" />
+    <link rel="stylesheet" href="../../static/css/footer.css" />
+
+    <title>Pirostagram</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <button class="header__goBackButton">
+          <img src="../../static/assets/icons/goBack.svg" alt="뒤로 가기 버튼" />
+        </button>
+        <div class="header__username">Pirogramming</div>
+        <div class="header__rightButtons">
+          <button class="header__alarmButton">
+            <img src="../../static/assets/icons/alarm.svg" alt="알림 열기 버튼" />
+          </button>
+          <button class="header__moreButton">
+            <img src="../../static/assets/icons/more.svg" alt="더보기 열기 버튼" />
+          </button>
+        </div>
+      </header>
+      <main>
+        <section class="profile">
+          <div class="profile__image">
+            <img src="../../static/assets/images/profilePicture.png" alt="프로필 사진" />
+          </div>
+          <div class="profile__data">
+            <!-- .profile__data-item*3>.profile__data-number+.profile__data-type -->
+            <div class="profile__data-item">
+              <div class="profile__data-number">1,234</div>
+              <div class="profile__data-type">Posts</div>
+            </div>
+            <div class="profile__data-item">
+              <div class="profile__data-number">5,678</div>
+              <div class="profile__data-type">Followers</div>
+            </div>
+            <div class="profile__data-item">
+              <div class="profile__data-number">9,101</div>
+              <div class="profile__data-type">Following</div>
+            </div>
+          </div>
+        </section>
+        <section class="userInfo">
+          <div>
+            <div class="userInfo__username">Pirogramming</div>
+            <div class="userInfo__category">컴퓨터 회사</div>
+            <div class="userInfo__description">
+              프로그래밍의 첫 걸음, 피로그래밍
+            </div>
+          </div>
+          <button class="userInfo__follow">Follow</button>
+        </section>
+        <aside class="highlights">
+          <div class="highlights__item">
+            <button class="highlights__item-image">
+              <img
+                src="../../static/assets/images/profilePicture.png"
+                alt="하이라이트 보기"
+              />
+            </button>
+            <div class="highlights_item-title">Title</div>
+          </div>
+          <div class="highlights__item">
+            <button class="highlights__item-image">
+              <img
+                src="../../static/assets/images/profilePicture.png"
+                alt="하이라이트 보기"
+              />
+            </button>
+            <div class="highlights_item-title">Title</div>
+          </div>
+          <div class="highlights__item">
+            <button class="highlights__item-image">
+              <img
+                src="../../static/assets/images/profilePicture.png"
+                alt="하이라이트 보기"
+              />
+            </button>
+            <div class="highlights_item-title">Title</div>
+          </div>
+          <div class="highlights__item">
+            <button class="highlights__item-image">
+              <img
+                src="../../static/assets/images/profilePicture.png"
+                alt="하이라이트 보기"
+              />
+            </button>
+            <div class="highlights_item-title">Title</div>
+          </div>
+        </aside>
+        <section class="posts">
+          <nav class="posts__tabBar">
+            <button class="footer__Button posts__tab--selected">
+              <img src="../../static/assets/icons/grid-line.svg" alt="게시물 버튼" />
+            </button>
+            <button class="footer__Button">
+              <img src="../../static/assets/icons/video-line.svg" alt="릴스 버튼" />
+            </button>
+            <button class="footer__Button">
+              <img src="../../static/assets/icons/file-user-line.svg" alt="태그된 게시물 버튼" />
+            </button>
+          </nav>
+          <article class="posts__contents">
+            {% for post in posts %}
+        <div class="posts__photo">
+          <a class="posts__photo" href="{% url 'post_detail' post.id %}">
+            <img src="{{ post.image.url }}" alt="Post Image">
+          </a>
+        </div>
+      {% empty %}
+        <p>No posts yet.</p>
+      {% endfor %}
+          </article>
+        </section>
+      </main>
+      <footer class="footer">
+          <button class="footer__Button">
+            <img src="../../static/assets/icons/home-5-line.svg" alt="홈 열기 버튼" />
+          </button>
+          <button class="footer__Button">
+            <img src="../../static/assets/icons/search-line.svg" alt="검색 버튼" />
+          </button>
+          <a href="{% url 'post_create' %}" class="footer__Button">
+            <img src="../../static/assets/icons/add-box-line.svg" alt="추가 버튼" />
+          </a>
+          <button class="footer__Button">
+            <img src="../../static/assets/icons/video-line.svg" alt="릴스 버튼" />
+          </button>
+          <button class="footer__Button">
+            <img src="../../static/assets/icons/user-line.svg" alt="유저 프로필 버튼" />
+          </button>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

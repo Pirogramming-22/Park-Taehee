@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Pirostagram</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/create.css' %}" />
+  </head>
+  <body>
+    <div class="form_center">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %} {{ form.as_p }}
+          <div class="bottom_btn">
+            <button id="save" type="submit">저장</button>
+          </div>
+        </form>
+    </div>
+  </body>
+</html>
