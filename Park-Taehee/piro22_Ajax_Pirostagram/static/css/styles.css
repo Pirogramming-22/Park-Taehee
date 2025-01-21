@@ -1,0 +1,4 @@
+.post__like.liked {
+    color: red;
+    font-weight: bold;
+}
